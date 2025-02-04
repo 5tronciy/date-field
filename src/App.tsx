@@ -8,6 +8,7 @@ function App() {
     label="DOB"
     type="date"
     value={value}
+    autoComplete="off"
     onChange={(e) => setValue(e.target.value)}
   />);
 }
