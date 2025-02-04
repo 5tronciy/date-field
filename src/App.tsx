@@ -7,7 +7,7 @@ function App() {
   return (<TextField
     label="DOB"
     type="date"
-    value={value || ''}
+    defaultValue={value || ''}
     autoComplete="off"
     name="dob-field"
     onChange={(e) => setValue(e.target.value)}
