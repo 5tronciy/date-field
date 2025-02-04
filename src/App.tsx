@@ -1,23 +1,22 @@
-import { TextField } from "@mui/material";
 import { useState } from "react";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { Dayjs } from 'dayjs';
 
 function App() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<Dayjs | null>(null);
 
-  return (<TextField
-    label="DOB"
-    type="date"
-    defaultValue={value || ''}
-    autoComplete="off"
-    name="dob-field"
-    onChange={(e) => setValue(e.target.value)}
-    inputProps={{
-      // Safari-specific attributes to prevent auto-fill
-      'data-form-type': 'other',
-      'data-lpignore': 'true',
-      'webkitdirectory': '',
-    }}
-  />);
+  return (<LocalizationProvider dateAdapter={AdapterDayjs}>
+    <DemoContainer components={['DatePicker']}>
+      <DatePicker
+        label="DOB"
+        value={value}
+        onChange={(newValue) => setValue(newValue)}
+      />
+    </DemoContainer>
+  </LocalizationProvider>);
 }
 
 export default App
