@@ -9,6 +9,7 @@ function App() {
     type="date"
     value={value || ''}
     autoComplete="off"
+    name="dob-field"
     onChange={(e) => setValue(e.target.value)}
   />);
 }
