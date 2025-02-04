@@ -1,6 +1,15 @@
-function App() {
+import { TextField } from "@mui/material";
+import { useState } from "react";
 
-  return null;
+function App() {
+  const [value, setValue] = useState('');
+
+  return (<TextField
+    label="DOB"
+    type="date"
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
+  />);
 }
 
 export default App
