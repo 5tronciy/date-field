@@ -11,6 +11,12 @@ function App() {
     autoComplete="off"
     name="dob-field"
     onChange={(e) => setValue(e.target.value)}
+    inputProps={{
+      // Safari-specific attributes to prevent auto-fill
+      'data-form-type': 'other',
+      'data-lpignore': 'true',
+      'webkitdirectory': '',
+    }}
   />);
 }
 
